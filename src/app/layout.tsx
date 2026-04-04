@@ -1,26 +1,58 @@
-import { Outfit } from 'next/font/google';
+import { Nunito } from 'next/font/google';
 import './globals.css';
 
 import { AuthProvider } from '@/components/providers/AuthProvider';
 import { SidebarProvider } from '@/context/SidebarContext';
-import { ThemeProvider } from '@/context/ThemeContext';
 import { QueryProvider } from '@/components/providers/QueryProvider';
 import { Toaster } from 'react-hot-toast';
 
-const outfit = Outfit({
-  subsets: ["latin"],
+const nunito = Nunito({
+  subsets: ["latin", "vietnamese"],
 });
 
 export const metadata = {
+    metadataBase: new URL('https://namviet.com'),
     title: {
-        default: 'Hệ Thống Quản Lý Nam Việt',
+        default: 'Công ty Sản xuất & Thương mại Nam Việt',
         template: '%s | Nam Việt',
     },
+    description: 'Nam Việt - Chuyên cung cấp các sản phẩm chất lượng cao, đáp ứng nhu cầu sản xuất và thương mại trong nước và quốc tế.',
+    keywords: ['Nam Việt', 'sản xuất', 'thương mại', 'hàng hóa', 'thanh phẩm', 'vật liệu'],
+    openGraph: {
+      title: 'Công ty Sản xuất & Thương mại Nam Việt',
+      description: 'Chuyên cung cấp các sản phẩm chất lượng cao, đáp ứng nhu cầu sản xuất và thương mại trong nước và quốc tế.',
+      url: 'https://namviet.com',
+      siteName: 'Nam Việt',
+      locale: 'vi_VN',
+      type: 'website',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    alternates: {
+      canonical: 'https://namviet.com',
+    },
+    authors: [{ name: 'Nam Việt' }],
     icons: {
         icon: "/favicon.ico",
         apple: "/apple-touch-icon.png",
     },
 }
+
+export const viewport = {
+  themeColor: '#12b76a',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export default function RootLayout({
   children,
@@ -28,40 +60,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${outfit.className} dark:bg-gray-900`}>
+    <html lang="vi">
+      <body className={`${nunito.className} bg-white`}>
         {/* ✅ AuthProvider MUST wrap everything */}
         <AuthProvider>
           <QueryProvider>
-            <ThemeProvider>
-              <SidebarProvider>
-                {children}
-                <Toaster
-                  position="top-right"
-                  toastOptions={{
+            <SidebarProvider>
+              {children}
+              <Toaster
+                position="top-right"
+                toastOptions={{
+                  duration: 3000,
+                  style: {
+                    background: '#363636',
+                    color: '#fff',
+                  },
+                  success: {
                     duration: 3000,
-                    style: {
-                      background: '#363636',
-                      color: '#fff',
+                    iconTheme: {
+                      primary: '#10b981',
+                      secondary: '#fff',
                     },
-                    success: {
-                      duration: 3000,
-                      iconTheme: {
-                        primary: '#10b981',
-                        secondary: '#fff',
-                      },
+                  },
+                  error: {
+                    duration: 4000,
+                    iconTheme: {
+                      primary: '#ef4444',
+                      secondary: '#fff',
                     },
-                    error: {
-                      duration: 4000,
-                      iconTheme: {
-                        primary: '#ef4444',
-                        secondary: '#fff',
-                      },
-                    },
-                  }}
-                />
-              </SidebarProvider>
-            </ThemeProvider>
+                  },
+                }}
+              />
+            </SidebarProvider>
           </QueryProvider>
         </AuthProvider>
       </body>
