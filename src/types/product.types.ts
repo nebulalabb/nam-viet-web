@@ -51,6 +51,7 @@ export interface Product extends BaseEntity {
   weight?: number;
   dimensions?: string;
   description?: string;
+  shortDescription?: string; // MOCK ONLY
   purchasePrice?: number;
   sellingPriceRetail?: number;
   sellingPriceWholesale?: number;
@@ -61,6 +62,10 @@ export interface Product extends BaseEntity {
   status: ProductStatus;
   image?: string;         // Single image field (new schema)
   isFeatured?: boolean;   // Featured product flag
+  badge?: "NEW" | "HOT" | "LIMITED"; // MOCK ONLY
+  views?: number;         // MOCK ONLY 
+  likes?: number;         // MOCK ONLY
+  comments?: number;      // MOCK ONLY
   images?: ProductImage[];
   videos?: ProductVideo[];
   inventory?: Inventory[];
