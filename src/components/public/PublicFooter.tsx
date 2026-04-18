@@ -74,7 +74,6 @@ export default function PublicFooter() {
                 { href: "#", label: "Về chúng tôi" },
                 { href: "#", label: "Lịch sử hình thành" },
                 { href: "#", label: "Chứng nhận chất lượng" },
-                { href: "/login", label: "Cổng quản trị" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link

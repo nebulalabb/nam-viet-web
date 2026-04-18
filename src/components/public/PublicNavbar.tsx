@@ -78,14 +78,7 @@ export default function PublicNavbar() {
               />
             </div>
 
-            {/* Admin Login */}
-            <Link
-              href="/login"
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-lime-500 to-green-500 text-white text-sm font-medium hover:from-lime-600 hover:to-green-600 shadow-lg shadow-lime-500/30 hover:shadow-lime-500/50 transition-all duration-300"
-            >
-              Đăng nhập
-              <ChevronRight size={14} />
-            </Link>
+            {/* Login button removed as per user request */}
 
             {/* Mobile Menu Toggle */}
             <button
@@ -112,15 +105,7 @@ export default function PublicNavbar() {
               {link.label}
             </Link>
           ))}
-          <div className="pt-2 border-t border-slate-200">
-            <Link
-              href="/login"
-              onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-lime-500 to-green-500 text-white text-sm font-medium"
-            >
-              Đăng nhập Admin
-            </Link>
-          </div>
+          {/* Login section removed */}
         </div>
       )}
     </nav>

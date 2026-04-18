@@ -1,7 +1,7 @@
 import { Nunito } from 'next/font/google';
 import './globals.css';
 
-import { AuthProvider } from '@/components/providers/AuthProvider';
+// import { AuthProvider } from '@/components/providers/AuthProvider';
 import { SidebarProvider } from '@/context/SidebarContext';
 import { QueryProvider } from '@/components/providers/QueryProvider';
 import { Toaster } from 'react-hot-toast';
@@ -63,7 +63,7 @@ export default function RootLayout({
     <html lang="vi">
       <body className={`${nunito.className} bg-white`}>
         {/* ✅ AuthProvider MUST wrap everything */}
-        <AuthProvider>
+        {/* Removed AuthProvider since authentication is no longer used */}
           <QueryProvider>
             <SidebarProvider>
               {children}
@@ -93,7 +93,7 @@ export default function RootLayout({
               />
             </SidebarProvider>
           </QueryProvider>
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </body>
     </html>
   );

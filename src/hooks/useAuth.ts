@@ -1,60 +1,42 @@
 import { useAuthStore } from "@/stores";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
-import api from "@/lib/axios";
 
 export function useAuth() {
   const router = useRouter();
   const authStore = useAuthStore();
 
-  // Logout và gọi API để xóa server-side session
+  // Chức năng đã bị vô hiệu hóa
   const logout = useCallback(async () => {
-    try {
-      await api.post("/auth/logout");
-    } catch (error) {
-      console.error("Logout error:", error);
-    } finally {
-      // Clear client state bất kể API response
-      authStore.logout();
-      router.push("/login");
-    }
-  }, [authStore, router]);
+    authStore.logout();
+    console.warn("Logout called but auth is disabled.");
+  }, [authStore]);
 
-  // Check nếu chưa login thì redirect về login
   const requireAuth = useCallback(() => {
-    if (!authStore.isAuthenticated) {
-      router.push("/login");
-      return false;
-    }
-    return true;
-  }, [authStore.isAuthenticated, router]);
+    return true; // Luôn trả về true để không bị chặn
+  }, []);
 
-  // Check nếu đã login thì redirect về dashboard
   const redirectIfAuthenticated = useCallback(() => {
-    if (authStore.isAuthenticated) {
-      router.push("/dashboard");
-      return true;
-    }
-    return false;
-  }, [authStore.isAuthenticated, router]);
+    return false; // Không bao giờ redirect vì "đã authenticated"
+  }, []);
 
   return {
-    // State
-    user: authStore.user,
-    token: authStore.token,
-    isAuthenticated: authStore.isAuthenticated,
+    // State (Neutral)
+    user: null,
+    token: null,
+    isAuthenticated: false,
 
-    // Actions
-    login: authStore.login,
+    // Actions (No-op)
+    login: () => {},
     logout,
-    setUser: authStore.setUser,
-    setToken: authStore.setToken,
+    setUser: () => {},
+    setToken: () => {},
 
-    // Permissions
-    hasPermission: authStore.hasPermission,
-    hasAnyPermission: authStore.hasAnyPermission,
-    hasAllPermissions: authStore.hasAllPermissions,
-    isRole: authStore.isRole,
+    // Permissions (Always true for public site)
+    hasPermission: () => true,
+    hasAnyPermission: () => true,
+    hasAllPermissions: () => true,
+    isRole: () => false,
 
     // Helpers
     requireAuth,
