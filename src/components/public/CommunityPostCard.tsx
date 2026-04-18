@@ -37,8 +37,8 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
 
   if (variant === "compact") {
     return (
-      <Link href={`/community/${post.slug}`} className="group flex gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200">
-        <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-700 shrink-0">
+      <Link href={`/community/${post.slug}`} className="group flex gap-3 rounded-2xl p-3 transition-all duration-200 hover:bg-[rgba(113,136,111,0.08)]">
+        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-[#e8e4da]">
           {imageUrl ? (
             <Image src={imageUrl} alt={post.title} fill className="object-cover" sizes="64px" />
           ) : (
@@ -48,10 +48,10 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
           )}
         </div>
         <div className="min-w-0">
-          <p className="text-sm font-medium text-slate-800 dark:text-slate-200 line-clamp-2 group-hover:text-green-500 dark:group-hover:text-emerald-400 transition-colors">
+          <p className="line-clamp-2 text-sm font-medium text-[var(--nv-ink)] transition-colors group-hover:text-[var(--nv-sage-strong)]">
             {post.title}
           </p>
-          <p className="text-xs text-slate-400 mt-1">{formatDate(post.createdAt)}</p>
+          <p className="mt-1 text-xs text-[var(--nv-muted)]">{formatDate(post.createdAt)}</p>
         </div>
       </Link>
     );
@@ -59,35 +59,35 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
 
   if (variant === "featured") {
     return (
-      <Link href={`/community/${post.slug}`} className="group block relative rounded-2xl overflow-hidden aspect-[16/9]">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-600" />
+      <Link href={`/community/${post.slug}`} className="group block relative aspect-[16/9] overflow-hidden rounded-[30px] shadow-[0_24px_70px_rgba(24,35,30,0.2)]">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#1f312b_0%,#375145_54%,#6c816d_100%)]" />
         {imageUrl && (
           <Image
             src={imageUrl}
             alt={post.title}
             fill
-            className="object-cover opacity-60 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
+            className="object-cover opacity-45 transition-all duration-700 group-hover:scale-105 group-hover:opacity-55"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 p-6 flex flex-col justify-end">
           <div className="flex items-center gap-2 mb-3">
-            <span className="px-2.5 py-1 rounded-full bg-lime-400/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+            <span className="rounded-full border border-white/12 bg-[rgba(245,239,228,0.18)] px-2.5 py-1 text-[11px] font-semibold text-[#f6efe2] backdrop-blur-sm">
               {post.category?.categoryName}
             </span>
             {isVideo && (
-              <span className="px-2.5 py-1 rounded-full bg-red-500/80 backdrop-blur-sm text-white text-[11px] font-semibold flex items-center gap-1">
+              <span className="flex items-center gap-1 rounded-full bg-red-500/75 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
                 <Video size={11} /> Video
               </span>
             )}
             {post.isFeatured && (
-              <span className="px-2.5 py-1 rounded-full bg-amber-500/80 backdrop-blur-sm text-white text-[11px] font-semibold flex items-center gap-1">
+              <span className="flex items-center gap-1 rounded-full bg-[rgba(192,155,108,0.82)] px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
                 <Star size={11} className="fill-white" /> Nổi bật
               </span>
             )}
           </div>
-          <h3 className="text-white font-bold text-lg leading-snug line-clamp-2 group-hover:text-emerald-300 transition-colors">
+          <h3 className="line-clamp-2 text-lg font-bold leading-snug text-white transition-colors group-hover:text-[#f4ead9]">
             {post.title}
           </h3>
           {post.excerpt && (
@@ -107,9 +107,9 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
   // Default card
   return (
     <Link href={`/community/${post.slug}`} className="group block">
-      <div className="bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-200/70 dark:border-slate-700/50 shadow-sm hover:shadow-xl hover:shadow-lime-400/10 dark:hover:shadow-lime-400/5 transition-all duration-500 hover:-translate-y-1">
+      <div className="nv-soft-card overflow-hidden rounded-[28px] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_54px_rgba(32,48,40,0.12)]">
         {/* Image */}
-        <div className="relative h-48 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-slate-800 dark:to-slate-700 overflow-hidden">
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#f2ece1] via-[#ebe6db] to-[#d6e2d2]">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -120,11 +120,11 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-lime-400/20 flex items-center justify-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[rgba(113,136,111,0.12)]">
                 {isVideo ? (
-                  <Video size={28} className="text-emerald-400" />
+                  <Video size={28} className="text-[var(--nv-sage-strong)]" />
                 ) : (
-                  <MessageCircle size={28} className="text-emerald-400" />
+                  <MessageCircle size={28} className="text-[var(--nv-sage-strong)]" />
                 )}
               </div>
             </div>
@@ -150,40 +150,40 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
         <div className="p-4">
           {/* Category + Date */}
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[11px] font-semibold text-lime-400 dark:text-emerald-400 uppercase tracking-wide">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--nv-sage)]">
               {post.category?.categoryName}
             </span>
-            <span className="flex items-center gap-1 text-[11px] text-slate-400">
+            <span className="flex items-center gap-1 text-[11px] text-[var(--nv-muted)]">
               <Clock size={11} />
               {formatDate(post.createdAt)}
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-sm leading-snug line-clamp-2 group-hover:text-green-500 dark:group-hover:text-emerald-400 transition-colors mb-2">
+          <h3 className="mb-2 text-sm font-semibold leading-snug text-[var(--nv-ink)] transition-colors line-clamp-2 group-hover:text-[var(--nv-sage-strong)]">
             {post.title}
           </h3>
 
           {/* Excerpt */}
           {post.excerpt && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mb-4">
+            <p className="mb-4 line-clamp-2 text-xs text-[var(--nv-muted)]">
               {post.excerpt}
             </p>
           )}
 
           {/* Stats */}
-          <div className="flex items-center gap-3 text-xs text-slate-400 dark:text-slate-500 pt-3 border-t border-slate-100 dark:border-slate-700/50">
-            <span className="flex items-center gap-1 hover:text-lime-400 transition-colors cursor-pointer">
+          <div className="flex items-center gap-3 border-t border-[rgba(52,67,55,0.08)] pt-3 text-xs text-[var(--nv-muted)]">
+            <span className="flex cursor-pointer items-center gap-1 transition-colors hover:text-[var(--nv-sage-strong)]">
               <Eye size={13} /> {formatCount(post.viewCount)}
             </span>
-            <span className="flex items-center gap-1 hover:text-red-500 transition-colors cursor-pointer">
+            <span className="flex cursor-pointer items-center gap-1 transition-colors hover:text-red-500">
               <Heart size={13} /> {formatCount(post.likeCount)}
             </span>
-            <span className="flex items-center gap-1 hover:text-teal-500 transition-colors cursor-pointer">
+            <span className="flex cursor-pointer items-center gap-1 transition-colors hover:text-[#507a74]">
               <MessageCircle size={13} /> {formatCount(post.commentCount)}
             </span>
             {post.author && (
-              <span className="ml-auto text-slate-400 truncate max-w-[100px]">
+              <span className="ml-auto max-w-[100px] truncate text-[var(--nv-muted)]">
                 {post.author.fullName}
               </span>
             )}
@@ -191,7 +191,7 @@ export default function CommunityPostCard({ post, variant = "default" }: Communi
         </div>
 
         {/* Bottom accent */}
-        <div className="h-0.5 bg-gradient-to-r from-lime-400 to-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        <div className="nv-accent-line h-0.5 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
       </div>
     </Link>
   );

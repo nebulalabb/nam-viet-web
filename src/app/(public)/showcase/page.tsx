@@ -71,47 +71,47 @@ export default function ShowcasePage() {
   return (
     <>
       {/* ── Hero Section ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-lime-500 via-green-500 to-emerald-500 pt-20 pb-24">
+      <section className="nv-hero pt-24 pb-28">
         {/* Background orbs */}
-        <div className="absolute top-10 left-1/4 w-96 h-96 bg-lime-400/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-green-500/20 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-green-500/10 rounded-full blur-3xl" />
+        <div className="absolute left-[14%] top-10 h-96 w-96 rounded-full bg-[rgba(201,214,192,0.16)] blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-[16%] h-80 w-80 rounded-full bg-[rgba(192,155,108,0.14)] blur-3xl animate-pulse [animation-delay:1s]" />
+        <div className="absolute left-1/2 top-1/2 h-[320px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(255,255,255,0.07)] blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lime-400/20 border border-lime-400/30 text-emerald-300 text-sm font-medium mb-6 backdrop-blur-sm">
+          <div className="nv-soft-badge mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
             <Sparkles size={14} className="animate-spin [animation-duration:3s]" />
             Danh mục sản phẩm Nam Việt
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight">
+          <h1 className="mb-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
             Sản phẩm{" "}
-            <span className="bg-gradient-to-r from-emerald-400 via-lime-400 to-lime-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#f4ead9] via-[#d8e3d4] to-[#c6a173] bg-clip-text text-transparent">
               chất lượng cao
             </span>
           </h1>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-10">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-[#d6dbd2]">
             Khám phá bộ sưu tập đa dạng từ nguyên liệu, bao bì đến thành phẩm – đáp ứng mọi nhu cầu sản xuất và thương mại.
           </p>
 
           {/* Search Hero */}
           <div className="max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-2 shadow-2xl">
-              <Search size={20} className="text-slate-400 ml-3 shrink-0" />
+            <div className="nv-hero-panel flex items-center gap-3 rounded-[28px] p-2 backdrop-blur-xl">
+              <Search size={20} className="ml-3 shrink-0 text-[#d1d8cf]" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Tìm kiếm sản phẩm..."
-                className="flex-1 bg-transparent text-white placeholder-slate-400 outline-none text-base py-1"
+                className="flex-1 bg-transparent py-1 text-base text-white outline-none placeholder:text-[#c7cfca]"
                 id="showcase-search"
               />
               {search && (
-                <button onClick={() => setSearch("")} className="p-1 text-slate-400 hover:text-white transition-colors">
+                <button onClick={() => setSearch("")} className="p-1 text-[#c7cfca] transition-colors hover:text-white">
                   <X size={16} />
                 </button>
               )}
-              <button className="px-5 py-2.5 bg-gradient-to-r from-green-400 to-lime-400 text-white rounded-xl font-medium text-sm hover:from-green-600 hover:to-green-600 transition-all duration-200 shadow-lg shadow-lime-400/30 shrink-0">
+              <button className="nv-primary-button shrink-0 rounded-2xl px-5 py-2.5 text-sm font-medium text-white transition-all duration-200">
                 Tìm kiếm
               </button>
             </div>
@@ -125,8 +125,8 @@ export default function ShowcasePage() {
                 onClick={() => setProductType(t.value)}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   productType === t.value
-                    ? "bg-white text-green-600 shadow-lg shadow-white/20"
-                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white border border-white/10"
+                    ? "nv-filter-pill-active"
+                    : "nv-filter-pill hover:bg-white/[0.14] hover:text-white"
                 }`}
               >
                 <span>{t.emoji}</span> {t.label}
@@ -137,17 +137,17 @@ export default function ShowcasePage() {
       </section>
 
       {/* ── Stats Bar ── */}
-      <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center flex-wrap gap-6 py-3">
-            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-              <Package size={16} className="text-lime-400" />
+      <div className="relative z-10 -mt-8 px-4 sm:px-6 lg:px-8">
+        <div className="nv-soft-card mx-auto max-w-7xl rounded-[28px] px-6 py-4">
+          <div className="flex flex-wrap items-center gap-6">
+            <div className="flex items-center gap-2 text-sm text-[var(--nv-muted)]">
+              <Package size={16} className="text-[var(--nv-gold)]" />
               <span>
-                <strong className="text-slate-800 dark:text-slate-200">{meta?.total || 0}</strong> sản phẩm
+                <strong className="text-[var(--nv-ink)]">{meta?.total || 0}</strong> sản phẩm
               </span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-              <TrendingUp size={16} className="text-lime-400" />
+            <div className="flex items-center gap-2 text-sm text-[var(--nv-muted)]">
+              <TrendingUp size={16} className="text-[var(--nv-sage)]" />
               <span>Cập nhật liên tục</span>
             </div>
 
@@ -157,7 +157,7 @@ export default function ShowcasePage() {
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
-                className="text-sm border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 outline-none focus:ring-2 focus:ring-lime-400/30"
+                className="rounded-xl border border-[var(--nv-border)] bg-[rgba(255,255,255,0.88)] px-3 py-2 text-sm text-[var(--nv-ink)] outline-none focus:ring-4 focus:ring-[rgba(113,136,111,0.12)]"
               >
                 {SORT_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>
@@ -165,16 +165,16 @@ export default function ShowcasePage() {
               </select>
 
               {/* View mode */}
-              <div className="flex items-center rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="flex items-center overflow-hidden rounded-xl border border-[var(--nv-border)] bg-white/80">
                 <button
                   onClick={() => setViewMode("grid")}
-                  className={`p-2 ${viewMode === "grid" ? "bg-green-500 text-white" : "text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"} transition-all`}
+                  className={`p-2 transition-all ${viewMode === "grid" ? "bg-[var(--nv-sage-strong)] text-white" : "text-[var(--nv-muted)] hover:bg-[rgba(113,136,111,0.08)]"}`}
                 >
                   <Grid3x3 size={15} />
                 </button>
                 <button
                   onClick={() => setViewMode("list")}
-                  className={`p-2 ${viewMode === "list" ? "bg-green-500 text-white" : "text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"} transition-all`}
+                  className={`p-2 transition-all ${viewMode === "list" ? "bg-[var(--nv-sage-strong)] text-white" : "text-[var(--nv-muted)] hover:bg-[rgba(113,136,111,0.08)]"}`}
                 >
                   <List size={15} />
                 </button>
@@ -183,7 +183,7 @@ export default function ShowcasePage() {
               {/* Filters toggle on mobile */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all lg:hidden"
+                className="flex items-center gap-1.5 rounded-xl border border-[var(--nv-border)] px-3 py-2 text-sm text-[var(--nv-muted)] transition-all hover:bg-white/80 lg:hidden"
               >
                 <SlidersHorizontal size={14} /> Lọc
               </button>
@@ -193,12 +193,12 @@ export default function ShowcasePage() {
       </div>
 
       {/* ── Main Content ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Loading state */}
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-28">
-            <Loader2 size={40} className="text-lime-400 animate-spin mb-4" />
-            <p className="text-slate-500 dark:text-slate-400 text-sm">Đang tải sản phẩm...</p>
+            <Loader2 size={40} className="mb-4 animate-spin text-[var(--nv-sage)]" />
+            <p className="text-sm text-[var(--nv-muted)]">Đang tải sản phẩm...</p>
           </div>
         ) : products.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-28 text-center">
@@ -214,7 +214,7 @@ export default function ShowcasePage() {
             {(search || productType) && (
               <button
                 onClick={() => { setSearch(""); setProductType(""); }}
-                className="px-4 py-2 rounded-xl bg-green-500 text-white text-sm font-medium hover:bg-green-600 transition-colors"
+                className="nv-primary-button rounded-2xl px-4 py-2 text-sm font-medium text-white transition-colors"
               >
                 Xóa bộ lọc
               </button>
@@ -241,7 +241,7 @@ export default function ShowcasePage() {
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page <= 1}
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-lime-400/10 hover:text-green-500 dark:hover:text-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                  className="nv-outline-button flex items-center gap-1.5 rounded-2xl px-4 py-2 text-sm font-medium text-[var(--nv-muted)] transition-all disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <ChevronLeft size={16} /> Trước
                 </button>
@@ -258,8 +258,8 @@ export default function ShowcasePage() {
                           onClick={() => setPage(p)}
                           className={`w-9 h-9 rounded-xl text-sm font-medium transition-all ${
                             p === page
-                              ? "bg-green-500 text-white shadow-lg shadow-lime-400/30"
-                              : "text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-lime-400/10 hover:text-green-500 dark:hover:text-emerald-400"
+                              ? "nv-primary-button text-white"
+                              : "text-[var(--nv-muted)] hover:bg-white/70 hover:text-[var(--nv-sage-strong)]"
                           }`}
                         >
                           {p}
@@ -271,7 +271,7 @@ export default function ShowcasePage() {
                 <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={page >= totalPages}
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-lime-400/10 hover:text-green-500 dark:hover:text-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                  className="nv-outline-button flex items-center gap-1.5 rounded-2xl px-4 py-2 text-sm font-medium text-[var(--nv-muted)] transition-all disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   Sau <ChevronRight size={16} />
                 </button>
@@ -282,22 +282,22 @@ export default function ShowcasePage() {
       </div>
 
       {/* ── CTA ── */}
-      <section className="bg-gradient-to-br from-lime-500 to-green-500 py-16 mt-10">
-        <div className="max-w-3xl mx-auto text-center px-4">
+      <section className="px-4 pb-6 pt-4 sm:px-6 lg:px-8">
+        <div className="nv-hero mx-auto max-w-7xl rounded-[36px] px-6 py-16 text-center shadow-[0_28px_80px_rgba(19,29,24,0.18)]">
           <h2 className="text-3xl font-bold text-white mb-4">Cần tư vấn sản phẩm?</h2>
-          <p className="text-emerald-200 mb-8">
+          <p className="mb-8 text-[#d6dbd2]">
             Đội ngũ của chúng tôi sẵn sàng hỗ trợ bạn tìm sản phẩm phù hợp nhất
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/community"
-              className="px-6 py-3 rounded-xl bg-white/20 backdrop-blur text-white font-medium hover:bg-white/30 transition-all border border-white/20"
+              className="nv-secondary-button rounded-2xl px-6 py-3 font-medium transition-all"
             >
               Đọc tin tức & Blog
             </Link>
             <a
               href="mailto:info@namviet.vn"
-              className="px-6 py-3 rounded-xl bg-white text-green-600 font-semibold hover:bg-emerald-50 transition-all shadow-lg"
+              className="nv-outline-button rounded-2xl px-6 py-3 font-semibold transition-all"
             >
               Liên hệ ngay
             </a>

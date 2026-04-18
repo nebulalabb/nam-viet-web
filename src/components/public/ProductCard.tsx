@@ -28,7 +28,7 @@ function getProductTypeBadge(type: string) {
   const map: Record<string, string> = {
     raw_material: "bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400",
     packaging: "bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-400",
-    finished_product: "bg-emerald-100 text-green-600 dark:bg-lime-400/15 dark:text-emerald-400",
+    finished_product: "bg-[rgba(113,136,111,0.14)] text-[var(--nv-sage-strong)]",
     goods: "bg-violet-100 text-violet-700 dark:bg-violet-500/15 dark:text-violet-400",
   };
   return map[type] || "bg-gray-100 text-gray-700";
@@ -49,9 +49,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/showcase/${product.id}`} className="group block">
-      <div className="relative bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-200/70 dark:border-slate-700/50 shadow-sm hover:shadow-xl hover:shadow-lime-400/10 dark:hover:shadow-lime-400/5 transition-all duration-500 hover:-translate-y-1">
+      <div className="nv-soft-card relative overflow-hidden rounded-[28px] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_54px_rgba(32,48,40,0.12)]">
         {/* Image */}
-        <div className="relative h-52 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 overflow-hidden">
+        <div className="relative h-52 overflow-hidden bg-gradient-to-br from-[#ebe6db] via-[#f5f0e7] to-[#dbe5d6]">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -71,7 +71,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           {/* Quick view on hover */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <span className="flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white rounded-full text-xs font-semibold backdrop-blur-sm shadow-lg">
+            <span className="flex items-center gap-2 rounded-full bg-[rgba(255,248,240,0.92)] px-4 py-2 text-xs font-semibold text-[var(--nv-ink)] shadow-lg backdrop-blur-sm">
               <Eye size={14} />
               Xem chi tiết
             </span>
@@ -104,15 +104,15 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Category */}
           {product.category && (
             <div className="flex items-center gap-1 mb-2">
-              <Tag size={11} className="text-emerald-400" />
-              <span className="text-[11px] text-lime-400 dark:text-emerald-400 font-medium uppercase tracking-wide">
+              <Tag size={11} className="text-[var(--nv-gold)]" />
+              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--nv-sage)]">
                 {product.category.categoryName}
               </span>
             </div>
           )}
 
           {/* Name */}
-          <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-sm leading-snug line-clamp-2 group-hover:text-green-500 dark:group-hover:text-emerald-400 transition-colors duration-200 mb-3">
+          <h3 className="mb-3 text-sm font-semibold leading-snug text-[var(--nv-ink)] transition-colors duration-200 line-clamp-2 group-hover:text-[var(--nv-sage-strong)]">
             {product.productName}
           </h3>
 
@@ -121,23 +121,23 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div>
               {product.sellingPriceRetail ? (
                 <div>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 mb-0.5">Giá bán lẻ</p>
-                  <p className="text-base font-bold text-green-500 dark:text-emerald-400">
+                  <p className="mb-0.5 text-xs text-[var(--nv-muted)]">Giá bán lẻ</p>
+                  <p className="text-base font-bold text-[var(--nv-sage-strong)]">
                     {formatPrice(product.sellingPriceRetail)}
                   </p>
                 </div>
               ) : (
-                <p className="text-base font-semibold text-slate-500 dark:text-slate-400">Liên hệ báo giá</p>
+                <p className="text-base font-semibold text-[var(--nv-muted)]">Liên hệ báo giá</p>
               )}
             </div>
-            <div className="p-2 rounded-xl bg-emerald-50 dark:bg-lime-400/10 text-green-500 dark:text-emerald-400 group-hover:bg-green-500 group-hover:text-white dark:group-hover:bg-green-500 transition-all duration-300">
+            <div className="nv-icon-badge rounded-2xl p-2.5 transition-all duration-300 group-hover:bg-[var(--nv-sage-strong)] group-hover:text-white">
               <ShoppingCart size={16} />
             </div>
           </div>
         </div>
 
         {/* Bottom accent */}
-        <div className="h-0.5 bg-gradient-to-r from-lime-400 to-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        <div className="nv-accent-line h-0.5 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
       </div>
     </Link>
   );

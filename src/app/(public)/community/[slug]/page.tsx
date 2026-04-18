@@ -69,8 +69,8 @@ export default function CommunityArticlePage() {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 size={40} className="text-teal-500 animate-spin" />
-          <p className="text-slate-500 text-sm">Đang tải bài viết...</p>
+          <Loader2 size={40} className="animate-spin text-[var(--nv-sage)]" />
+          <p className="text-sm text-[var(--nv-muted)]">Đang tải bài viết...</p>
         </div>
       </div>
     );
@@ -84,7 +84,7 @@ export default function CommunityArticlePage() {
         </div>
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">Không tìm thấy bài viết</h2>
         <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">Bài viết không tồn tại hoặc đã bị xóa.</p>
-        <Link href="/community" className="px-5 py-2.5 rounded-xl bg-green-500 text-white font-medium hover:bg-green-600 transition-colors">
+        <Link href="/community" className="nv-primary-button rounded-2xl px-5 py-2.5 font-medium text-white transition-colors">
           Quay lại cộng đồng
         </Link>
       </div>
@@ -99,14 +99,14 @@ export default function CommunityArticlePage() {
   return (
     <>
       {/* Breadcrumb */}
-      <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+      <div className="border-b border-[rgba(52,67,55,0.08)] bg-[rgba(255,255,255,0.64)] backdrop-blur-xl">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 flex-wrap">
-            <Link href="/community" className="hover:text-green-500 dark:hover:text-emerald-400 transition-colors">
+            <Link href="/community" className="transition-colors hover:text-[var(--nv-sage-strong)]">
               Cộng đồng
             </Link>
             <ChevronRight size={14} />
-            <Link href={`/community?category=${post.categoryId}`} className="hover:text-green-500 dark:hover:text-emerald-400 transition-colors">
+            <Link href={`/community?category=${post.categoryId}`} className="transition-colors hover:text-[var(--nv-sage-strong)]">
               {post.category?.categoryName}
             </Link>
             <ChevronRight size={14} />
@@ -138,14 +138,14 @@ export default function CommunityArticlePage() {
             {/* Back button */}
             <Link
               href="/community"
-              className="inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-green-500 dark:hover:text-emerald-400 transition-colors mb-6"
+              className="mb-6 inline-flex items-center gap-1.5 text-sm text-[var(--nv-muted)] transition-colors hover:text-[var(--nv-sage-strong)]"
             >
               <ArrowLeft size={14} /> Quay lại cộng đồng
             </Link>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-100 dark:bg-lime-400/15 text-green-500 dark:text-emerald-400 text-xs font-semibold">
+              <span className="flex items-center gap-1 rounded-full bg-[rgba(113,136,111,0.12)] px-3 py-1 text-xs font-semibold text-[var(--nv-sage-strong)]">
                 <Tag size={11} />
                 {post.category?.categoryName}
               </span>
@@ -163,7 +163,7 @@ export default function CommunityArticlePage() {
 
             {/* Excerpt */}
             {post.excerpt && (
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed border-l-4 border-lime-400 pl-4 mb-6 italic">
+              <p className="mb-6 border-l-4 border-[var(--nv-gold)] pl-4 text-lg italic leading-relaxed text-[var(--nv-muted)]">
                 {post.excerpt}
               </p>
             )}
@@ -171,11 +171,11 @@ export default function CommunityArticlePage() {
             {/* Meta */}
             <div className="flex flex-wrap items-center gap-4 py-4 border-y border-slate-200 dark:border-slate-700 mb-8 text-sm text-slate-500 dark:text-slate-400">
               <span className="flex items-center gap-1.5">
-                <User size={14} className="text-emerald-400" />
+                <User size={14} className="text-[var(--nv-sage)]" />
                 {post.author?.fullName}
               </span>
               <span className="flex items-center gap-1.5">
-                <Clock size={14} className="text-emerald-400" />
+                <Clock size={14} className="text-[var(--nv-sage)]" />
                 {formatDate(post.publishedAt || post.createdAt)}
               </span>
               <div className="flex items-center gap-4 ml-auto">
@@ -190,7 +190,7 @@ export default function CommunityArticlePage() {
                 </span>
                 <button
                   onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
-                  className="flex items-center gap-1 text-lime-400 hover:text-green-600 transition-colors"
+                  className="flex items-center gap-1 text-[var(--nv-sage)] transition-colors hover:text-[var(--nv-sage-strong)]"
                 >
                   <Share2 size={13} />
                 </button>
@@ -230,7 +230,7 @@ export default function CommunityArticlePage() {
                 {post.newsTagRelations.map(({ tag }) => (
                   <span
                     key={tag.id}
-                    className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs hover:bg-emerald-100 dark:hover:bg-lime-400/15 hover:text-green-500 dark:hover:text-emerald-400 cursor-pointer transition-all"
+                    className="cursor-pointer rounded-full bg-[rgba(113,136,111,0.08)] px-3 py-1 text-xs text-[var(--nv-muted)] transition-all hover:bg-[rgba(113,136,111,0.16)] hover:text-[var(--nv-sage-strong)]"
                   >
                     #{tag.tagName}
                   </span>
@@ -244,8 +244,8 @@ export default function CommunityArticlePage() {
             <div className="sticky top-24 space-y-6">
               {/* Author card */}
               {post.author && (
-                <div className="bg-white dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700/50 p-5 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-lime-400 to-green-500 flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">
+                <div className="nv-soft-card rounded-[28px] p-5 text-center">
+                  <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#516754_0%,#769075_100%)] text-xl font-bold text-white">
                     {post.author.fullName[0]}
                   </div>
                   <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{post.author.fullName}</h4>
@@ -254,13 +254,13 @@ export default function CommunityArticlePage() {
               )}
 
               {/* Stats */}
-              <div className="bg-white dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700/50 p-5">
+              <div className="nv-soft-card rounded-[28px] p-5">
                 <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-4">Thống kê</h4>
                 <div className="space-y-3">
                   {[
-                    { icon: <Eye size={15} className="text-teal-400" />, label: "Lượt xem", value: formatCount(post.viewCount) },
+                    { icon: <Eye size={15} className="text-[var(--nv-gold)]" />, label: "Lượt xem", value: formatCount(post.viewCount) },
                     { icon: <Heart size={15} className="text-red-400" />, label: "Yêu thích", value: formatCount(post.likeCount) },
-                    { icon: <MessageCircle size={15} className="text-emerald-400" />, label: "Bình luận", value: formatCount(post.commentCount) },
+                    { icon: <MessageCircle size={15} className="text-[var(--nv-sage)]" />, label: "Bình luận", value: formatCount(post.commentCount) },
                   ].map((stat) => (
                     <div key={stat.label} className="flex items-center justify-between">
                       <span className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
@@ -275,7 +275,7 @@ export default function CommunityArticlePage() {
               {/* Share */}
               <button
                 onClick={() => navigator.share?.({ title: post.title, url: window.location.href })}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-green-400 to-lime-400 text-white font-medium text-sm hover:from-green-600 hover:to-green-600 transition-all shadow-lg shadow-lime-400/30"
+                className="nv-primary-button flex w-full items-center justify-center gap-2 rounded-2xl py-3 text-sm font-medium text-white transition-all"
               >
                 <Share2 size={15} /> Chia sẻ bài viết
               </button>
@@ -288,7 +288,7 @@ export default function CommunityArticlePage() {
           <section className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-700">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">Bài viết liên quan</h2>
-              <Link href="/community" className="text-sm text-green-500 dark:text-emerald-400 hover:underline flex items-center gap-1">
+              <Link href="/community" className="flex items-center gap-1 text-sm text-[var(--nv-sage-strong)] hover:underline">
                 Xem tất cả <ChevronRight size={14} />
               </Link>
             </div>
