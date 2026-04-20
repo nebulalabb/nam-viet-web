@@ -884,3 +884,14 @@ span.flatpickr-weekday,
   --select-icon: #9ca3af;
   --select-icon-hover: #f3f4f6;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -82,7 +82,7 @@ export default function ShowcasePage() {
   return (
     <>
       {/* ── Hero Section ── */}
-      <section className="relative pt-48 pb-32 overflow-hidden min-h-[700px] flex items-center mt-[-80px]">
+      <section className="relative pt-36 pb-20 overflow-hidden min-h-[420px] flex items-center mt-[-80px]">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -107,25 +107,6 @@ export default function ShowcasePage() {
                chất lượng vượt trội
             </span>
           </h1>
-
-          {/* Search Hero */}
-          <div className="max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 p-2 bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] focus-within:border-emerald-500 focus-within:ring-4 focus-within:ring-emerald-500/10 transition-all">
-              <div className="flex-1 flex items-center gap-3 pl-4">
-                <Search size={22} className="text-emerald-700/40" />
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Bạn đang tìm sản phẩm gì?..."
-                  className="w-full py-2 bg-transparent text-slate-900 placeholder:text-slate-400 outline-none font-bold"
-                />
-              </div>
-              <button className="px-10 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black uppercase tracking-widest transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
-                Tìm kiếm
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -327,97 +308,6 @@ export default function ShowcasePage() {
           </>
         )}
       </div>
-      </section>
-
-      {/* ── Contact Information Section ── */}
-      <section className="px-4 pb-24 pt-16 sm:px-6 lg:px-8 bg-white">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-12 bg-slate-50/70 rounded-[48px] p-8 lg:p-12 shadow-sm border border-slate-100 transition-all">
-            
-            {/* Left: Branding Column */}
-            <div className="flex flex-col items-center justify-center text-center space-y-6 lg:w-[35%] py-4">
-               <div className="relative w-28 h-28 md:w-32 md:h-32 transition-transform duration-500 hover:scale-105">
-                 <Image 
-                    src="/images/logo/logo-nobackground.png" 
-                    alt="Logo Nam Việt" 
-                    fill
-                    className="object-contain"
-                    priority
-                 />
-               </div>
-
-               <div className="space-y-3">
-                 <div className="flex flex-col items-center">
-                   <h3 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
-                     CÔNG TY NAM VIỆT
-                   </h3>
-                   <p className="text-[10px] md:text-xs font-bold text-slate-400 tracking-[0.4em] uppercase mt-2">
-                     Nông nghiệp xanh
-                   </p>
-                 </div>
-               </div>
-            </div>
-
-            {/* Right: Contact Details Stacked Card */}
-            <div className="lg:w-[65%] w-full flex flex-col justify-center">
-              <div className="bg-slate-50/50 rounded-3xl border border-slate-100 overflow-hidden divide-y divide-slate-100/80">
-                
-                {/* Address */}
-                <div className="flex items-stretch group hover:bg-white transition-colors">
-                  <div className="w-[120px] sm:w-[140px] bg-slate-50/80 p-4 border-r border-slate-100 flex flex-col items-center justify-center text-center group-hover:bg-emerald-50/30 transition-colors">
-                     <MapPin size={18} className="text-slate-500 mb-1" />
-                     <span className="text-[11px] font-bold text-slate-700 uppercase leading-tight">Địa<br/>chỉ</span>
-                  </div>
-                  <div className="flex-1 p-4 sm:p-5 flex items-center">
-                    <p className="text-sm text-slate-600 font-medium leading-relaxed">
-                      Quốc Lộ 30, Ấp Đông Mỹ, Xã Mỹ Hội, Huyện Cao Lãnh, Tỉnh Đồng Tháp.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Hotline */}
-                <div className="flex items-stretch group hover:bg-white transition-colors">
-                  <div className="w-[120px] sm:w-[140px] bg-slate-50/80 p-4 border-r border-slate-100 flex flex-col items-center justify-center text-center group-hover:bg-emerald-50/30 transition-colors">
-                     <Phone size={18} className="text-slate-500 mb-1" />
-                     <span className="text-[11px] font-bold text-slate-700 uppercase leading-none">Hotline</span>
-                  </div>
-                  <div className="flex-1 p-4 sm:p-5 flex items-center">
-                    <a href="tel:0886357788" className="text-[15px] sm:text-base font-black text-emerald-600 hover:text-emerald-700 transition-colors">
-                      088 635 7788 - 0868 759 588
-                    </a>
-                  </div>
-                </div>
-
-                {/* Website */}
-                <div className="flex items-stretch group hover:bg-white transition-colors">
-                  <div className="w-[120px] sm:w-[140px] bg-slate-50/80 p-4 border-r border-slate-100 flex flex-col items-center justify-center text-center group-hover:bg-emerald-50/30 transition-colors">
-                     <Globe size={18} className="text-slate-500 mb-1" />
-                     <span className="text-[11px] font-bold text-slate-700 uppercase leading-none">Website</span>
-                  </div>
-                  <div className="flex-1 p-4 sm:p-5 flex items-center">
-                    <a href="https://hoasinhnamviet.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-medium hover:text-emerald-700 transition-colors">
-                      https://hoasinhnamviet.com/
-                    </a>
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="flex items-stretch group hover:bg-white transition-colors">
-                  <div className="w-[120px] sm:w-[140px] bg-slate-50/80 p-4 border-r border-slate-100 flex flex-col items-center justify-center text-center group-hover:bg-emerald-50/30 transition-colors">
-                     <Mail size={18} className="text-slate-500 mb-1" />
-                     <span className="text-[11px] font-bold text-slate-700 uppercase leading-none">Email</span>
-                  </div>
-                  <div className="flex-1 p-4 sm:p-5 flex items-center">
-                    <a href="mailto:hoasinhnamviet@gmail.com" className="text-sm text-slate-500 font-medium hover:text-emerald-700 transition-colors">
-                      hoasinhnamviet@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
     </>
   );

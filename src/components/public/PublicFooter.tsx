@@ -19,11 +19,11 @@ export default function PublicFooter() {
               </div>
               <div className="flex flex-col justify-center">
                 <span className="block text-2xl font-black text-white uppercase tracking-wider leading-tight">Nam Việt</span>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#f0e2cc]">Sản xuất & Thương mại</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#f0e2cc]">Hóa Sinh & Phân bón</span>
               </div>
             </div>
             <p className="mb-8 text-sm leading-relaxed text-emerald-100 font-medium pr-4 md:pr-10">
-              Chuyên cung cấp các sản phẩm chất lượng cao, đáp ứng nhu cầu sản xuất và thương mại trong nước và quốc tế.
+              Chuyên sản xuất các loại phân bón cho tất cả các loại cây trồng từ nguồn nguyên liệu ngoại nhập — Chất lượng đặt lên hàng đầu.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-4">
@@ -98,17 +98,22 @@ export default function PublicFooter() {
                 <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-800/40 border border-emerald-400/30 text-white backdrop-blur-sm">
                   <MapPin size={18} />
                 </div>
-                <span className="text-sm font-semibold text-emerald-100 leading-relaxed max-w-[200px]">
-                  123 Đường Nam Việt, Quận 1, TP. Hồ Chí Minh
+                <span className="text-sm font-semibold text-emerald-100 leading-relaxed max-w-[220px]">
+                  Quốc lộ 30, ấp Đông Mỹ, xã Mỹ Thọ, tỉnh Đồng Tháp
                 </span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-800/40 border border-emerald-400/30 text-white backdrop-blur-sm">
                   <Phone size={18} />
                 </div>
-                <a href="tel:+84123456789" className="text-sm font-semibold text-emerald-100 transition-colors hover:text-white">
-                  +84 (0) 123 456 789
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a href="tel:0886357788" className="text-sm font-semibold text-emerald-100 transition-colors hover:text-white">
+                    088 635 7788
+                  </a>
+                  <a href="tel:0868759588" className="text-sm font-semibold text-emerald-100 transition-colors hover:text-white">
+                    0868 759 588
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-800/40 border border-emerald-400/30 text-white backdrop-blur-sm">
@@ -127,7 +132,7 @@ export default function PublicFooter() {
       <div className="border-t border-emerald-500/20 bg-emerald-950/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-emerald-200/80 font-semibold tracking-wide">
-            © {new Date().getFullYear()} Nam Việt. Tất cả quyền được bảo lưu.
+            © {new Date().getFullYear()} Công Ty Cổ Phần Hóa Sinh Nam Việt. Tất cả quyền được bảo lưu.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-sm font-semibold text-emerald-200/80 transition-colors hover:text-white">Chính sách bảo mật</Link>

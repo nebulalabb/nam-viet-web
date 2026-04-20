@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ShoppingBag, Users, Search, Menu, X, Building2 } from "lucide-react";
+import { ShoppingBag, Users, Search, Menu, X, Building2, Home, Phone } from "lucide-react";
 
 export default function PublicNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,6 +17,7 @@ export default function PublicNavbar() {
   }, []);
 
   const navLinks = [
+    { href: "/trang-chu", label: "Trang chủ", icon: <Home size={16} /> },
     { href: "/gioi-thieu", label: "Giới thiệu", icon: <Building2 size={16} /> },
     { href: "/showcase", label: "Sản phẩm", icon: <ShoppingBag size={16} /> },
     { href: "/community", label: "Cộng đồng", icon: <Users size={16} /> },
@@ -33,15 +34,13 @@ export default function PublicNavbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/showcase" className="flex items-center gap-3 group">
-            <div className={`relative w-10 h-10 flex items-center justify-center transition-all duration-500 !bg-transparent border-none sm:border-none`}
-                 style={{ isolation: 'isolate' }}>
+          <Link href="/trang-chu" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 flex items-center justify-center transition-all duration-500">
               <Image 
-                src="/logo.gif" 
+                src="/images/logo/logo-nobackground.png" 
                 alt="Nam Việt Logo" 
                 fill
-                className="object-contain p-0 transition-transform group-hover:scale-110" 
-                style={{ mixBlendMode: 'multiply' }}
+                className="object-contain transition-transform group-hover:scale-110" 
               />
             </div>
             <div className="hidden sm:block">
@@ -49,7 +48,7 @@ export default function PublicNavbar() {
                 Nam Việt
               </span>
               <span className="block text-[10px] -mt-1 font-semibold tracking-[0.22em] uppercase text-slate-500">
-                Sản xuất & Thương mại
+                Hóa Sinh & Phân bón
               </span>
             </div>
           </Link>
@@ -72,10 +71,10 @@ export default function PublicNavbar() {
             ))}
           </div>
 
-          {/* Search + Actions */}
+          {/* Search + Hotline + Actions */}
           <div className="flex items-center gap-2">
             {/* Search Bar */}
-            <div className={`hidden lg:flex w-64 items-center gap-2 rounded-full border transition-all ${
+            <div className={`hidden lg:flex w-56 items-center gap-2 rounded-full border transition-all ${
               isScrolled 
                 ? "border-emerald-100 bg-emerald-50/30 text-slate-900 focus-within:border-emerald-500 focus-within:ring-emerald-500/10" 
                 : "border-slate-200 bg-white/50 text-slate-900 focus-within:border-white focus-within:ring-white/20"
@@ -89,6 +88,19 @@ export default function PublicNavbar() {
                 className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
               />
             </div>
+
+            {/* Hotline */}
+            <a
+              href="tel:0886357788"
+              className={`hidden lg:flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all ${
+                isScrolled
+                  ? "text-emerald-700 hover:bg-emerald-50"
+                  : "text-emerald-700 bg-white/60 hover:bg-white/80"
+              }`}
+            >
+              <Phone size={14} className="text-emerald-600" />
+              088 635 7788
+            </a>
 
             {/* Mobile Menu Toggle */}
             <button
