@@ -50,6 +50,10 @@ export default function CommunityPage() {
   };
   if (activeTab === "featured") queryParams.isFeatured = true;
   if (activeTab === "video") queryParams.contentType = "video";
+  if (activeTab === "latest") {
+    queryParams.sortBy = "publishedAt";
+    queryParams.sortOrder = "desc";
+  }
 
   const { data: newsResponse, isLoading } = usePublicNewsList(queryParams);
   const { data: featuredList = [] } = usePublicFeaturedNews();

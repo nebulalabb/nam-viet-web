@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        port: "8000",
+        port: "5000",
         pathname: "/**",
       },
       {
@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         {
           source: '/uploads/:path*',
-          destination: `${process.env.NEXT_PUBLIC_API_URL?.replace('/api', '') || 'http://localhost:8000'}/uploads/:path*`,
+          destination: `${process.env.NEXT_PUBLIC_API_URL?.replace('/api', '') || 'http://localhost:5000'}/uploads/:path*`,
         },
       ],
     };

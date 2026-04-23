@@ -213,21 +213,18 @@ export default function CommunityArticlePage() {
             )}
 
             {/* Content */}
-            <div className="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed">
-              {post.content.split("\n").map((paragraph, i) => (
-                paragraph.trim() ? (
-                  <p key={i} className="mb-4 text-base leading-7">{paragraph}</p>
-                ) : (
-                  <br key={i} />
-                )
-              ))}
-            </div>
+            <div 
+              className="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed"
+              dangerouslySetInnerHTML={{ 
+                __html: post.content ? post.content.replace(/src="\/uploads/g, `src="${API_BASE}/uploads`) : ""
+              }}
+            />
 
             {/* Tags from newsTagRelations */}
             {post.newsTagRelations && post.newsTagRelations.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
                 <span className="text-sm text-slate-500 dark:text-slate-400 mr-1">Tags:</span>
-                {post.newsTagRelations.map(({ tag }) => (
+                {post.newsTagRelations.map(({ tag }: { tag: any }) => (
                   <span
                     key={tag.id}
                     className="cursor-pointer rounded-full bg-[rgba(113,136,111,0.08)] px-3 py-1 text-xs text-[var(--nv-muted)] transition-all hover:bg-[rgba(113,136,111,0.16)] hover:text-[var(--nv-sage-strong)]"
